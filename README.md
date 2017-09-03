@@ -1,7 +1,6 @@
 # FrontierDao
 
 This library is O/R Mapper library like `MyBatis` for Android.<br>
-<strong>This library is unsupported android library project</strong>.
 
 
 ## Build
@@ -140,7 +139,7 @@ public class HistoriesEntity implements Serializable {
 ・`app/dao/HistoriesDao.java`
 
 ```java
-@FRMappingXml(R.xml.sql_histories) // specify target resource id of sql xml file.
+@FRDatabaseMappingXml("sql_histories") // specify the sql xml file name (exclude .xml extension) in the "res/xml" directory.
 public class HistoriesDao extends FRDatabaseDao {
 
     public List<HistoriesEntity> getAll() {
