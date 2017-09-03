@@ -159,7 +159,7 @@ public class HistoriesDao extends FRDatabaseDao {
         return getSqlMapper().selectForObject(
                 "getEntity",
                 HistoriesEntity.class,
-                new FRNameValuePair("historyId", historyId)
+                new FRDatabaseParam("historyId", historyId)
                 );
 
     }
@@ -171,7 +171,7 @@ public class HistoriesDao extends FRDatabaseDao {
         return getSqlMapper().selectForObject(
                 "getEntity",
                 HistoriesEntity.class,
-                new FRNameValuePair("updateTime", date)
+                new FRDatabaseParam("updateTime", date)
                 );
 
     }
@@ -198,7 +198,7 @@ public class HistoriesDao extends FRDatabaseDao {
 
         getSqlMapper().delete(
                 "delete",
-                new FRNameValuePair("historyId", id)
+                new FRDatabaseParam("historyId", id)
                 );
 
     }

@@ -18,9 +18,21 @@ android {
     }
 }
 
+ext {
+
+    /**
+     * JAR file name.
+     */
+    JAR_FILE_NAME = getProperty('build.jar.name') \
+        + '-' + getProperty('build.jar.version') \
+        + '.jar'
+
+}
+
+
 task clearJar(type: Delete) {
 
-    delete getProperty('build.jar.outputDir') + '/' + getProperty('build.jar.name') + '.jar'
+    delete getProperty('build.jar.outputDir') + '/' + JAR_FILE_NAME
 
 }
 
@@ -28,7 +40,7 @@ task makeJar(type: Copy) {
 
     from(getProperty('build.jar.source.classesJar')) {
 
-        rename('classes.jar', getProperty('build.jar.name') + '.jar')
+        rename('classes.jar', JAR_FILE_NAME)
 
     }
     into('build/libs')
